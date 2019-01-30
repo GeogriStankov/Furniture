@@ -1,0 +1,398 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Classic furniture</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static "css/blog.css" %}">
+    <link rel="stylesheet" href="{% static "css/custom.css" %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/3.3.6/cerulean/bootstrap.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-alpha1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha/js/bootstrap.min.js">
+    </script>
+    {% block head_js %}{% endblock %}
+    <style>
+
+    body{
+        background-image: url('{% static "images/5.jpg"%}');
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center top;
+        background-color: black;
+    }
+
+    /*Product images options*/
+    .zoom{
+        width: 100px;
+        height: 100px;
+        -webkit-transition: width 2s, height 4s; /* For Safari 3.1 to 6.0 */
+        transition: width 2s, height 4s;
+        padding:1px;
+        border:1px solid #021a40;
+        background-color:#DEB887;
+    }
+    .zoom:hover {
+        position:relative;
+        top:-25px;
+        left:-35px;
+        width:230px;
+        height:200px;
+        display:block;
+        z-index:999;
+        -moz-box-shadow: 0 0 10px #ccc; 
+        -webkit-box-shadow: 0 0 10px #ccc; 
+        box-shadow: 0 0 10px #ccc;
+    }
+    /*Product images options*/
+
+    /*Navbar options*/
+    #navbar-black.navbar-default {
+        font-size: 14px;
+        background-color: rgba(34, 34, 34, 1);
+        background: -webkit-linear-gradient(top, rgba(60, 60, 60, 1) 0%, rgba(34, 34, 34, 1) 100%);
+        background: linear-gradient(to bottom, rgba(60, 60, 60, 1) 0%, rgba(34, 34, 34, 1) 100%);
+        border: 0px;
+        border-radius: 0;
+     }
+    #navbar-black.navbar-default .navbar-nav>li>a:hover,
+    #navbar-black.navbar-default .navbar-nav>li>a:focus,
+    #navbar-black.navbar-default .navbar-nav>li>ul>li>a:hover, 
+    #navbar-black.navbar-default .navbar-nav>li>ul>li>a:focus, 
+    #navbar-black.navbar-default .navbar-nav>.active>a,
+    #navbar-black.navbar-default .navbar-nav>.active>a:hover,
+    #navbar-black.navbar-default .navbar-nav>.active>a:focus {   
+        color: rgba(255, 255, 255, 1);
+        background-color: rgba(0, 0, 0, 1);
+        background: -webkit-linear-gradient(top, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 1) 100%);
+        background: linear-gradient(to bottom, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 1) 100%);
+    }
+    #sidebar-black, #column-black {
+        background-color: #222222;
+    }
+    #navbar-black.navbar-default .navbar-toggle {
+        border-color: #222222; 
+    }
+    #navbar-black.navbar-default .navbar-toggle:hover,
+    #navbar-black.navbar-default .navbar-toggle:focus {
+        background-color: #3C3C3C;
+    }
+    #navbar-black.navbar-default .navbar-nav>li>a,
+    #navbar-black.navbar-default .navbar-nav>li>ul>li>a, 
+    #navbar-black.navbar-default .navbar-brand {
+        color: #999999; 
+    }
+    #navbar-black.navbar-default .navbar-toggle .icon-bar,
+    #navbar-black.navbar-default .navbar-toggle:hover .icon-bar,
+    #navbar-black.navbar-default .navbar-toggle:focus .icon-bar {
+        background-color: #ffffff;
+    }
+
+    .navbar-default{
+        opacity: 0.9;
+        height: 70px;
+        -webkit-box-shadow: 0 15px 8px -3px #999;
+        -moz-box-shadow: 0 15px 8px -3px #999;
+        box-shadow: 0 15px 8px -3px #999;
+        font-family: "arial";
+        font-size: 16px;
+    }
+    .navbar-brand {
+        margin-top: -25px;
+        line-height: 70px;
+    }
+    .navbar-nav li a {
+        line-height: 70px;
+        height: 70px;
+        padding-top: 0;
+    }
+    /*Navbar options*/
+
+
+    /*Divs options*/
+    .container_2{
+        display: inline-block;
+        position:absolute;
+        width:530px;
+        height:110px;
+        left:0px;
+        top:200px;
+        text-align: center;
+        background-color: black;
+        color: white;
+        opacity: 0.6;
+        border-radius: 2px;
+    }
+    .container_3{
+        display:inline-block;
+        position:absolute;
+        width:500px;
+        height:70px;
+        left:0px;
+        top:350px;
+        text-align: center;
+        background-color: black;
+        color: white;
+        opacity: 0.6;
+        border-radius: 2px;
+    }
+    .container_5{
+        background-color: #DEB887;
+        border-radius: 2px;
+        opacity: 0.9;
+        padding-top: 1px;
+        padding-left: 12px;
+        padding-right: 12px;
+        padding-bottom: 12px;
+    }
+    .container_6{
+        display:inline-block;
+        position:absolute;
+        width:300px;
+        height:300px;
+        left:866px;
+        top:170px;
+        text-align: left;
+        background-color: black;
+        color: white;
+        opacity: 0.6;
+        border-radius: 2px;
+        padding:20px;
+    }
+    .container_7{
+        background-color: #DEB887;
+        border-radius: 2px;
+        opacity: 0.9;
+        padding-top: 1px;
+        padding-left: 19px;
+        padding-right: 19px;
+        padding-bottom: 8px;
+    }
+
+    /*Divs options*/
+
+    /*Headings options*/
+    h3{
+        font-family: "Vladimir script"; 
+        color: white;
+    }
+    h2{
+        font-family: "Monotype Corsiva";
+        color: white;
+        font-size: 36px;
+    }
+    h1{
+        color: black;
+    }
+    .zagl{
+        font-family: "Monotype Corsiva";
+        color: black;
+        font-size: 36px;
+    }
+    .con{
+        margin-top: 20px;
+        font-family: "Berlin Sans FB";
+        font-size: 16px;
+    }
+    .ab{
+        font-family:"Berlin Sans FB";
+        font-size: 17px;
+        text-align: justify;
+        text-indent: 50px;
+        margin-top: 12px;
+    }
+    /*Headings options*/
+
+
+    table{
+        margin-top: 25px;
+        background-color: #DEB887;
+        opacity: 0.9;
+        border-radius: 5px;
+        color:black;
+    }
+    form{
+        background-color: #DEB887;
+        padding: 15px;
+        border-radius: 5px;
+        opacity: 0.9;
+        -webkit-box-shadow: 0 15px 8px -3px #999;
+        -moz-box-shadow: 0 15px 8px -3px #999;
+        box-shadow: 0 15px 8px -3px #999;
+    }
+    #map{
+        width:50%;
+        height:500px;
+        margin: 15px;
+        border:1px solid #021a40;
+        background-color:#DEB887;
+        border-radius: 5px;
+    }
+
+    /*For devices with max-width 960px*/
+    @media (max-width: 960px){
+    body{
+        background-image: url('{% static "images/5.jpg"%}');
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-attachment: fixed;
+        background-position: center;
+        background-color: black;
+        }
+    #myCollapsingList{
+        background-color: black;
+    }
+    .container_2{
+        display:block;
+        position:relative;
+        margin: auto;
+        width:80%;
+        height:auto;
+        left: 0px;
+        top:20px;
+        text-align: center;
+        background-color: black;
+        color: white;
+        opacity: 0.6;
+        border-radius: 2px;
+        padding:5px;
+     }
+    .container_3{
+        display:block;
+        position:relative;
+        margin:auto;
+        width:80%;
+        height:auto;
+        left:0px;
+        top:40px;
+        text-align: center;
+        background-color: black;
+        color: white;
+        opacity: 0.6;
+        border-radius: 2px;
+        padding: 5px;
+        
+      }
+    #map{
+        width:80%;
+        height:350px;
+        margin: auto;
+        border:1px solid #021a40;
+        background-color:#DEB887;
+        border-radius: 2px;
+       }
+    .container_6{
+        display:block;
+        position:relative;
+        width:80%;
+        height:300px;
+        margin: auto;
+        left:0px;
+        top:30px;
+        text-align: left;
+        background-color: black;
+        color: white;
+        opacity: 0.6;
+        border-radius: 2px;
+        padding:20px;
+       }
+    table{
+        margin: auto;
+        width:80%;
+        background-color: #DEB887;
+        opacity: 0.9;
+        border-radius: 5px;
+        color:black;
+       }
+    }
+    /*For devices with max-width 960px*/
+
+    /*For devices with max-width 991px*/
+    @media (max-width: 991px) {
+    .navbar-header {
+      float: none;
+      }
+    .navbar-left,.navbar-right {
+      float: none !important;
+      }
+    .navbar-toggle {
+      display: block;
+      }
+    .navbar-collapse {
+      border-top: 1px solid transparent;
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.1);
+      }
+    .navbar-fixed-top {
+      top: 0;
+      border-width: 0 0 1px;
+      }
+    .navbar-collapse.collapse {
+      display: none!important;
+      }
+    .navbar-nav {
+      float: none!important;
+      margin-top: 7.5px;
+      }
+    .navbar-nav>li {
+      float: none;
+      }
+    .navbar-nav>li>a {
+      padding-top: 10px;
+      padding-bottom: 10px;
+      }
+    .collapse.in{
+      display:block !important;
+      }
+}
+   /*For devices with max-width 991px*/
+    </style>
+</head>
+<body>  
+    <nav id="navbar-black" class="navbar navbar-default navbar-fixed-top">
+          <div class="container">
+          <div class="navbar-header">
+                <a class="navbar-brand" href="#"><h3>CLASSIC<br>FURNITURE</h3></a>
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#myCollapsingList">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+          </div>
+          <ul id="myCollapsingList" class="nav navbar-nav navbar-right collapse navbar-collapse">
+            <li><a href="/">HOME</a></li>
+            <li><a href="/products/">PRODUCTS</a></li>
+
+            <li><a href="/pages/about/">ABOUT</a></li>
+            <li><a href="/blog/">BLOG</a></li>
+            <li><a href="/pages/contact/">CONTACT US</a></li>
+            {% if user.is_authenticated %}
+                <li><a href="{% url 'profile' %}">PROFILE</a></li>
+                <li><a href="{% url 'logout' %}">LOG OUT</a></li>
+            {% else %}
+                <li><a href="{% url 'register' %}">REGISTER</a></li>
+                <li><a href="{% url 'login' %}">LOG IN</a></li>
+            {% endif %}
+        </ul>
+        </nav>
+    </div>
+    <div class="container">
+    <hr>
+    {% if messages %}
+        <div class="alert alert-success">
+            <div class="messages">
+                {% for message in messages %}
+                    {{ message }}
+                {% endfor %}
+            </div>
+        </div>
+    {% endif %}
+
+    <div class="container">
+        {% block content %}
+        {% endblock %}
+    </div>
+
+</div>
+</div>
+</body>
+</html>
